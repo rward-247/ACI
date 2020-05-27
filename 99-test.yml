@@ -1,9 +1,14 @@
 - name: Test Workbook
   hosts: dCloud1
   gather_facts: no
+  vars:
+    template: "{{ lookup('file', 'group_vars/template.json') | from_json }}"
 
   tasks:
   - name: Test blog
+
     debug:
       msg: |
-        "{{ dc.siteCode }}_Prod_Phys_Domain"
+        {% for nodepair in switches.leaf.nodes %}
+        {{ nodepair.vpc }}
+        {% endfor %}

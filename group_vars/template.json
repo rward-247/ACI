@@ -202,6 +202,118 @@
                 "range": "39_40",
                 "vpc": 22
             }
+        ],
+        "vpc": [
+            {
+                "port": "1",
+                "range": "1_4",
+                "descr": ""
+            },
+            {
+                "port": "2",
+                "range": "5_8",
+                "descr": ""
+            },
+            {
+                "port": "3",
+                "range": "9_10",
+                "descr": ""
+            },
+            {
+                "port": "4",
+                "range": "11_12",
+                "descr": ""
+            },
+            {
+                "port": "5",
+                "range": "13_14",
+                "descr": ""
+            },
+            {
+                "port": "6",
+                "range": "15_16",
+                "descr": ""
+            },
+            {
+                "port": "7",
+                "range": "17_18",
+                "descr": ""
+            },
+            {
+                "port": "8",
+                "range": "19_20",
+                "descr": ""
+            },
+            {
+                "port": "9",
+                "range": "21_22",
+                "descr": ""
+            },
+            {
+                "port": "10",
+                "range": "23_24",
+                "descr": ""
+            },
+            {
+                "port": "11",
+                "range": "25",
+                "descr": ""
+            },
+            {
+                "port": "12",
+                "range": "26",
+                "descr": ""
+            },
+            {
+                "port": "13",
+                "range": "27",
+                "descr": ""
+            },
+            {
+                "port": "14",
+                "range": "28",
+                "descr": ""
+            },
+            {
+                "port": "15",
+                "range": "29",
+                "descr": ""
+            },
+            {
+                "port": "16",
+                "range": "30",
+                "descr": ""
+            },
+            {
+                "port": "17",
+                "range": "31",
+                "descr": ""
+            },
+            {
+                "port": "18",
+                "range": "32",
+                "descr": ""
+            },
+            {
+                "port": "19",
+                "range": "33_34",
+                "descr": ""
+            },
+            {
+                "port": "20",
+                "range": "35_36",
+                "descr": ""
+            },
+            {
+                "port": "21",
+                "range": "37_38",
+                "descr": ""
+            },
+            {
+                "port": "22",
+                "range": "39_40",
+                "descr": ""
+            }
         ]
     },
     "b": {
@@ -326,7 +438,119 @@
                 "id": 24,
                 "range": "24",
                 "vpc": 22
+            }
+        ],
+        "vpc": [
+            {
+                "port": "1",
+                "range": "1_2",
+                "descr": ""
             },
+            {
+                "port": "2",
+                "range": "3_4",
+                "descr": ""
+            },
+            {
+                "port": "3",
+                "range": "5",
+                "descr": ""
+            },
+            {
+                "port": "4",
+                "range": "6",
+                "descr": ""
+            },
+            {
+                "port": "5",
+                "range": "7",
+                "descr": ""
+            },
+            {
+                "port": "6",
+                "range": "8",
+                "descr": ""
+            },
+            {
+                "port": "7",
+                "range": "9",
+                "descr": ""
+            },
+            {
+                "port": "8",
+                "range": "10",
+                "descr": ""
+            },
+            {
+                "port": "9",
+                "range": "11",
+                "descr": ""
+            },
+            {
+                "port": "10",
+                "range": "12",
+                "descr": ""
+            },
+            {
+                "port": "11",
+                "range": "13",
+                "descr": ""
+            },
+            {
+                "port": "12",
+                "range": "14",
+                "descr": ""
+            },
+            {
+                "port": "13",
+                "range": "15",
+                "descr": ""
+            },
+            {
+                "port": "14",
+                "range": "16",
+                "descr": ""
+            },
+            {
+                "port": "15",
+                "range": "17",
+                "descr": ""
+            },
+            {
+                "port": "16",
+                "range": "18",
+                "descr": ""
+            },
+            {
+                "port": "17",
+                "range": "19",
+                "descr": ""
+            },
+            {
+                "port": "18",
+                "range": "20",
+                "descr": ""
+            },
+            {
+                "port": "19",
+                "range": "21",
+                "descr": ""
+            },
+            {
+                "port": "20",
+                "range": "22",
+                "descr": ""
+            },
+            {
+                "port": "21",
+                "range": "23",
+                "descr": ""
+            },
+            {
+                "port": "22",
+                "range": "24",
+                "descr": ""
+            }
         ]
     },
     "c": {

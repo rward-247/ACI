@@ -9,6 +9,21 @@
 
     debug:
       msg: |
-        {% for nodepair in switches.leaf.nodes %}
-        {{ nodepair.vpc }}
-        {% endfor %}
+        <infraInfra>
+            {% for node in switches.leaf.nodes %}
+            <infraAccPortP name="Leaf{{ node.sw1.nodeId }}_IntProf">
+                {% for intf in template[node.template].port %}
+                <infraHPortS name="eth1_{{ intf.id }}" type="range">
+                    <infraRsAccBaseGrp tDn="uni/infra/funcprof/accbundle-Prod_{{ node.template.upper() }}_{{ node.sw1.nodeId }}_{{ node.sw2.nodeId }}_Eth{{ intf.range }}_Vpc_{{ intf.vpc }}_IntPoPlGrp" />
+                </infraHPortS>
+                {% endfor %}
+            </infraAccPortP>
+            <infraAccPortP name="Leaf{{ node.sw2.nodeId }}_IntProf">
+                {% for intf in template[node.template].port %}
+                <infraHPortS name="eth1_{{ intf.id }}" type="range">
+                    <infraRsAccBaseGrp tDn="uni/infra/funcprof/accbundle-Prod_{{ node.template.upper() }}_{{ node.sw1.nodeId }}_{{ node.sw2.nodeId }}_Eth{{ intf.range }}_Vpc_{{ intf.vpc }}_IntPoPlGrp" />
+                </infraHPortS>
+                {% endfor %}
+            </infraAccPortP>
+            {% endfor %}
+        </infraInfra>

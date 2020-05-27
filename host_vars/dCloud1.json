@@ -92,10 +92,12 @@
             "template": "l2Out",
             "mgmtSubnet": "/24",
             "mgmtGw": "5.5.5.254",
+            "l2OutPorts": [49, 51],
+            "l3OutPorts": [50, 52],
             "sw1": {
                 "hostname": "xir-d109sls01",
                 "mgmtIP": "5.5.5.9",
-                "nodeId": "501",
+                "nodeId": "888",
                 "serialNumber": "FTX12345678"
             },
             "sw2": {
@@ -103,7 +105,7 @@
                 "mgmtIP": "5.5.5.6",
                 "mgmtSubnet": "/24",
                 "mgmtGw": "5.5.5.254",
-                "nodeId": "502",
+                "nodeId": "889",
                 "serialNumber": "FTX12345679"
             }
         }

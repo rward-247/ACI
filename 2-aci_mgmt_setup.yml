@@ -1,0 +1,102 @@
+- name: APIC - One-time management setup
+  hosts: dCloud1
+  gather_facts: no
+
+  vars:
+    aci_login: &aci_login
+      hostname: '{{ apic_host }}'
+      username: '{{ apic_username }}'
+      password: '{{ apic_password }}'
+      use_proxy: '{{ apic_use_proxy }}'
+      validate_certs: '{{ apic_validate_certs }}'
+  
+  tasks:
+  - name: Enable OOB IP addresses on spine switches
+    aci_rest:
+      <<: *aci_login
+      path: /api/mo/uni.xml
+      method: post
+      content: |
+        <fvTenant name="mgmt">
+              <mgmtMgmtP name="default">
+                  <mgmtOoB name="default">
+                      <mgmtRsOoBStNode addr="{{ switches.spine.sw1.mgmtIp }}{{ switches.spine.mgmtSubnet }}" annotation="" gw="{{ switches.spine.mgmtGw }}" tDn="topology/pod-1/node-{{ switches.spine.sw1.nodeId }}" v6Addr="::" v6Gw="::"/>
+                      <mgmtRsOoBStNode addr="{{ switches.spine.sw2.mgmtIp }}{{ switches.spine.mgmtSubnet }}" annotation="" gw="{{ switches.spine.mgmtGw }}" tDn="topology/pod-1/node-{{ switches.spine.sw2.nodeId }}" v6Addr="::" v6Gw="::"/>
+                  </mgmtOoB>
+              </mgmtMgmtP>
+        </fvTenant>
+    delegate_to: localhost
+
+  - name: Enable OOB IP addresses on leaf switches
+    aci_rest:
+      <<: *aci_login
+      path: /api/mo/uni.xml
+      method: post
+      content: |
+        <fvTenant name="mgmt">
+              <mgmtMgmtP name="default">
+                  <mgmtOoB name="default">
+                      {% for node in switches.leaf.nodes %}
+                      <mgmtRsOoBStNode addr="{{ node.sw1.mgmtIp }}{{ node.mgmtSubnet }}" annotation="" gw="{{ node.mgmtGw }}" tDn="topology/pod-1/node-{{ node.sw1.nodeId }}" v6Addr="::" v6Gw="::"/>
+                      <mgmtRsOoBStNode addr="{{ node.sw2.mgmtIp }}{{ node.mgmtSubnet }}" annotation="" gw="{{ node.mgmtGw }}" tDn="topology/pod-1/node-{{ node.sw2.nodeId }}" v6Addr="::" v6Gw="::"/>
+                      {% endfor %} 
+                  </mgmtOoB>
+              </mgmtMgmtP>
+        </fvTenant>
+    delegate_to: localhost
+
+  - name: Enable NTP services
+    aci_rest:
+      <<: *aci_login
+      path: /api/node/mo/uni/fabric.xml
+      method: post
+      content: |
+        <datetimePol StratumValue="8" adminSt="enabled" annotation="" authSt="disabled" descr="" masterMode="disabled" name="Fabric_Date_Time" nameAlias="" ownerKey="" ownerTag="" serverState="disabled">
+                {% for server in dc.ntp %}
+                <datetimeNtpProv annotation="" descr="" keyId="0" maxPoll="6" minPoll="4" name="{{ server }}" nameAlias="" preferred="no" trueChimer="disabled">
+                    <datetimeRsNtpProvToEpg annotation="" tDn="uni/tn-mgmt/mgmtp-default/oob-default"/>
+                </datetimeNtpProv>
+                {% endfor %}
+        </datetimePol>
+    delegate_to: localhost
+
+  - name: Enable SNMP services
+    aci_rest:
+      <<: *aci_login
+      path: /api/node/mo/uni/fabric.xml
+      method: post
+      content: |
+        <snmpPol adminSt="enabled" annotation="" contact="{{ dc.snmp.contact }}" descr="" loc="{{ dc.snmp.location }}" name="Snmp_Allow" nameAlias="">
+            <snmpCommunityP annotation="" descr="" name="{{ dc.snmp.community }}" nameAlias=""/>
+        </snmpPol>
+    delegate_to: localhost
+
+  - name: Configure APIC pod policy
+    aci_rest:
+      <<: *aci_login
+      path: /api/node/mo/uni/fabric/funcprof.xml
+      method: post
+      content: |
+        <fabricPodPGrp annotation="" descr="" name="Fabric_PodPolicy">
+            <fabricRsSnmpPol annotation="" tnSnmpPolName="Snmp_Allow"/>
+            <fabricRsPodPGrpIsisDomP annotation="" tnIsisDomPolName=""/>
+            <fabricRsPodPGrpCoopP annotation="" tnCoopPolName=""/>
+            <fabricRsPodPGrpBGPRRP annotation="" tnBgpInstPolName=""/>
+            <fabricRsTimePol annotation="" tnDatetimePolName="Fabric_Date_Time"/>
+            <fabricRsMacsecPol annotation="" tnMacsecFabIfPolName=""/>
+            <fabricRsCommPol annotation="" tnCommPolName=""/>
+        </fabricPodPGrp>
+    delegate_to: localhost
+
+  - name: Apply APIC pod policy to a pod profile
+    aci_rest:
+      <<: *aci_login
+      path: /api/node/mo/uni/fabric.xml
+      method: post
+      content: |
+        <fabricPodP annotation="" descr="" name="default" nameAlias="" ownerKey="" ownerTag="">
+            <fabricPodS annotation="" descr="" name="default" nameAlias="" ownerKey="" ownerTag="" type="ALL">
+                <fabricRsPodPGrp annotation="" tDn="uni/fabric/funcprof/podpgrp-Fabric_PodPolicy"/>
+            </fabricPodS>
+        </fabricPodP>
+    delegate_to: localhost

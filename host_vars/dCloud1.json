@@ -1,8 +1,8 @@
 {
     "dc": {
         "apicIp": "198.18.133.200",
-        "siteCode": "dCloud",
-        "siteName": "dCloud_Dc1",
+        "siteCode": "Dcl_Dc1",
+        "tenantName": "dCloud",
         "dnsServer": [
             "1.2.3.4",
             "4.5.6.7"

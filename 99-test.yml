@@ -3,15 +3,7 @@
   gather_facts: no
 
   tasks:
-  - name: Enable OOB IP addresses on leaf switches
+  - name: Test blog
     debug:
       msg: |
-        <fvTenant name="mgmt">
-              <mgmtMgmtP name="default">
-                  <mgmtOoB name="default">
-                      {% for node in switches.leaf.nodes %}
-                      <mgmtRsOoBStNode addr="{{ node.sw1.mgmtIp }}{{ node['mgmtSubnet'] }}" annotation="" gw="{{ node['mgmtGw'] }}" tDn="topology/pod-1/node-{{ node.sw1.nodeId }}" v6Addr="::" v6Gw="::"/>
-                      {% endfor %} 
-                  </mgmtOoB>
-              </mgmtMgmtP>
-        </fvTenant>
+        "{{ dc.siteCode }}_Prod_Phys_Domain"

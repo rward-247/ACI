@@ -51,25 +51,6 @@
         </fvTenant>
     delegate_to: localhost
 
-  - name: Register spine and leaf nodes with APIC fabric and assign node IDs
-    aci_rest:
-      <<: *aci_login
-      path: /api/node/mo/uni/controller.xml
-      method: post
-      content: |
-        <fabricNodeIdentPol>
-          <!-- spines -->
-          <fabricNodeIdentP serial="{{ switches.spine.sw1.serialNumber }}" name="{{ switches.spine.sw1.hostname }}" nodeId="{{ switches.spine.sw1.nodeId }}" role="spine"/>
-          <fabricNodeIdentP serial="{{ switches.spine.sw2.serialNumber }}" name="{{ switches.spine.sw2.hostname }}" nodeId="{{ switches.spine.sw2.nodeId }}" role="spine"/>
-          <!-- leafs -->
-          {% for switch in switches.leaf.nodes %}
-          <fabricNodeIdentP serial="{{ switch.sw1.serialNumber }}" name="{{ switch.sw1.hostname }}" nodeId="{{ switch.sw1.nodeId }}" role="leaf"/>
-          <fabricNodeIdentP serial="{{ switch.sw2.serialNumber }}" name="{{ switch.sw2.hostname }}" nodeId="{{ switch.sw2.nodeId }}" role="leaf"/>
-        {% endfor %}
-        </fabricNodeIdentPol>
-    delegate_to: localhost
-
-
   - name: Create VLAN pools (static and dynamic) and assign site VLANs to static pool (Ansible aci_vlan_encaps_block not working properly so using XML)
     aci_rest:
       <<: *aci_login

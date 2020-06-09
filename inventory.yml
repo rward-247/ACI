@@ -5,7 +5,7 @@ all:
             apic_username: admin
             apic_password: C1sco12345
         dCloud2:
-            apic_host: 198.18.134.200
+            apic_host: 198.18.132.200
             apic_username: admin
             apic_password: C1sco12345
 

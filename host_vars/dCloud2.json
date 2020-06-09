@@ -1,0 +1,126 @@
+{
+    "dc": {
+        "apicIp": "198.18.132.200",
+        "siteCode": "Dcl_Dc2",
+        "tenantName": "dCloud",
+        "dnsServer": [
+            "1.2.3.4",
+            "4.5.6.7"
+        ],
+        "dnsDomain": "xilinx.com",
+        "ntp": [
+            "2.3.4.5",
+            "5.6.7.8"
+        ],
+        "fabricSyslog": [
+            "3.4.5.6",
+            "6.7.8.9"
+        ],
+        "mgmtNetworks": [
+            "0.0.0.0/0"
+        ],
+        "snmp": {
+            "community": "cheerios",
+            "location": "the mall",
+            "contact": "paul blart",
+            "name": "mall cop"
+        },
+        "mcpKey": "HotTubTimeMachine",
+        "bgpRrAsn": "65001"
+    },
+    "switches": {
+        "spine": 
+            {
+                "mgmtSubnet": "/24",
+                "mgmtGw": "1.1.1.254",
+                "sw1": {
+                    "hostname": "dcl-spine1",
+                    "mgmtIp": "1.1.1.1",
+                    "nodeId": "601",
+                    "serialNumber": "IAN"
+                },
+                "sw2": {
+                    "hostname": "dcl-spine2",
+                    "mgmtIp": "1.1.1.2",
+                    "nodeId": "602",
+                    "serialNumber": "TRAVIS"
+                }
+            }
+        ,
+        "leaf": 
+            {
+                "nodes": [
+                    {
+                        "template": "a",
+                        "mgmtSubnet": "/24",
+                        "mgmtGw": "5.5.5.254",
+                        "vpcProtId": 501,
+                        "sw1": {
+                            "hostname": "dcl-d101sls01",
+                            "mgmtIp": "5.5.5.5",
+                            "nodeId": "501",
+                            "serialNumber": "FTX12345678"
+                        },
+                        "sw2": {
+                            "hostname": "dcl-d101sls02",
+                            "mgmtIp": "5.5.5.6",
+                            "nodeId": "502",
+                            "serialNumber": "FTX12345679"
+                        }
+                    },
+                    {
+                        "template": "b",
+                        "mgmtSubnet": "/24",
+                        "mgmtGw": "5.5.5.254",
+                        "vpcProtId": 503,
+                        "sw1": {
+                            "hostname": "dcl-d101sls03",
+                            "mgmtIp": "5.5.5.7",
+                            "nodeId": "503",
+                            "serialNumber": "FTX12345555"
+                        },
+                        "sw2": {
+                            "hostname": "dcl-d101sls04",
+                            "mgmtIp": "5.5.5.8",
+                            "nodeId": "504",
+                            "serialNumber": "FTX12345556"
+                        }
+                    }
+                ]
+            },
+        "l2Out": {
+            "template": "l2Out",
+            "mgmtSubnet": "/24",
+            "mgmtGw": "5.5.5.254",
+            "l2OutPorts": [49, 51],
+            "l3OutPorts": [50, 52],
+            "sw1": {
+                "hostname": "xir-d109sls01",
+                "mgmtIP": "5.5.5.9",
+                "nodeId": "888",
+                "serialNumber": "FTX12345678"
+            },
+            "sw2": {
+                "hostname": "xir-d101sls02",
+                "mgmtIP": "5.5.5.6",
+                "mgmtSubnet": "/24",
+                "mgmtGw": "5.5.5.254",
+                "nodeId": "889",
+                "serialNumber": "FTX12345679"
+            }
+        }
+    },
+    "tenant": {
+        "tenantSyslog": [
+            "4.4.4.4",
+            "5.5.5.5"
+        ],
+        "vlanList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+        ]
+    }
+}

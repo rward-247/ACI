@@ -1,0 +1,287 @@
+{
+    "dc": {
+      "apicIp": "172.23.226.201",
+      "siteCode": "Xhd_Dc1",
+      "tenantName": "Xhd",
+      "dnsServer": [
+        "172.23.84.201",
+        "172.23.84.203",
+        "172.23.84.204"
+      ],
+      "dnsDomain": "xilinx.com",
+      "ntp": [
+        "172.23.84.10",
+        "172.23.84.32",
+        "172.23.84.36"
+      ],
+      "fabricSyslog": [
+        "99.99.99.99",
+        "99.99.99.98"
+      ],
+      "mgmtNetworks": [
+        "0.0.0.0/0"
+      ],
+      "snmp": {
+        "community": "99",
+        "location": "99",
+        "contact": "99",
+        "name": "99"
+      },
+      "mcpKey": "Xhd_Mcp",
+      "bgpRrAsn": "6490599999999"
+    },
+    "switches": {
+      "spine": {
+        "mgmtSubnet": "/23",
+        "mgmtGw": "172.23.226.99999",
+        "sw1": {
+          "hostname": "xhd-d101sps01",
+          "mgmtIp": "172.23.226.204",
+          "nodeId": "1011",
+          "serialNumber": "FTX999999999"
+        },
+        "sw2": {
+          "hostname": "xhd-d101sps02",
+          "mgmtIp": "172.23.226.205",
+          "nodeId": "1012",
+          "serialNumber": "FTX999999999"
+        }
+      },
+      "leaf": {
+        "nodes": [
+          {
+            "template": "a",
+            "mgmtSubnet": "/23",
+            "mgmtGw": "172.23.226.99999",
+            "vpcProtId": 31,
+            "sw1": {
+              "hostname": "xhd-d103sls01",
+              "mgmtIp": "172.23.226.208",
+              "nodeId": "1031",
+              "serialNumber": "FTX999999999"
+            },
+            "sw2": {
+              "hostname": "xhd-d103sls02",
+              "mgmtIp": "172.23.226.209",
+              "nodeId": "1032",
+              "serialNumber": "FTX999999999"
+            }
+          },
+          {
+            "template": "b",
+            "mgmtSubnet": "/23",
+            "mgmtGw": "172.23.226.99999",
+            "vpcProtId": 41,
+            "sw1": {
+              "hostname": "xhd-d104sls01",
+              "mgmtIp": "172.23.226.210",
+              "nodeId": "1041",
+              "serialNumber": "FTX999999999"
+            },
+            "sw2": {
+              "hostname": "xhd-d104sls02",
+              "mgmtIp": "172.23.226.211",
+              "nodeId": "1042",
+              "serialNumber": "FTX999999999"
+            }
+          },
+          {
+            "template": "b",
+            "mgmtSubnet": "/23",
+            "mgmtGw": "172.23.226.99999",
+            "vpcProtId": 61,
+            "sw1": {
+              "hostname": "xhd-d106sls01",
+              "mgmtIp": "172.23.226.214",
+              "nodeId": "1061",
+              "serialNumber": "FTX999999999"
+            },
+            "sw2": {
+              "hostname": "xhd-d106sls02",
+              "mgmtIp": "172.23.226.215",
+              "nodeId": "1062",
+              "serialNumber": "FTX999999999"
+            }
+          },
+          {
+            "template": "b",
+            "mgmtSubnet": "/23",
+            "mgmtGw": "172.23.226.99999",
+            "vpcProtId": 71,
+            "sw1": {
+              "hostname": "xhd-d107sls01",
+              "mgmtIp": "172.23.226.216",
+              "nodeId": "1047",
+              "serialNumber": "FTX999999999"
+            },
+            "sw2": {
+              "hostname": "xhd-d107sls02",
+              "mgmtIp": "172.23.226.217",
+              "nodeId": "1072",
+              "serialNumber": "FTX999999999"
+            }
+          },
+          {
+            "template": "a",
+            "mgmtSubnet": "/23",
+            "mgmtGw": "172.23.226.99999",
+            "vpcProtId": 73,
+            "sw1": {
+              "hostname": "xhd-d107sls03",
+              "mgmtIp": "172.23.226.218",
+              "nodeId": "1073",
+              "serialNumber": "FTX999999999"
+            },
+            "sw2": {
+              "hostname": "xhd-d107sls04",
+              "mgmtIp": "172.23.226.219",
+              "nodeId": "1074",
+              "serialNumber": "FTX999999999"
+            }
+          },
+          {
+            "template": "b",
+            "mgmtSubnet": "/23",
+            "mgmtGw": "172.23.226.99999",
+            "vpcProtId": 81,
+            "sw1": {
+              "hostname": "xhd-d108sls01",
+              "mgmtIp": "172.23.226.220",
+              "nodeId": "1081",
+              "serialNumber": "FTX999999999"
+            },
+            "sw2": {
+              "hostname": "xhd-d108sls02",
+              "mgmtIp": "172.23.226.221",
+              "nodeId": "1082",
+              "serialNumber": "FTX999999999"
+            }
+          },
+          {
+            "template": "b",
+            "mgmtSubnet": "/23",
+            "mgmtGw": "172.23.226.99999",
+            "vpcProtId": 91,
+            "sw1": {
+              "hostname": "xhd-d109sls01",
+              "mgmtIp": "172.23.226.222",
+              "nodeId": "1091",
+              "serialNumber": "FTX999999999"
+            },
+            "sw2": {
+              "hostname": "xhd-d109sls02",
+              "mgmtIp": "172.23.226.223",
+              "nodeId": "1092",
+              "serialNumber": "FTX999999999"
+            }
+          }
+        ]
+      },
+      "l2Out": {
+        "template": "l2Out",
+        "mgmtSubnet": "/23",
+        "mgmtGw": "172.23.226.99999",
+        "l2OutPorts": [
+          49,
+          51
+        ],
+        "l3OutPorts": [
+          50,
+          52
+        ],
+        "sw1": {
+          "hostname": "xhd-d101sls01",
+          "mgmtIp": "172.23.226.206",
+          "nodeId": "1013",
+          "serialNumber": "FTX999999999"
+        },
+        "sw2": {
+          "hostname": "xhd-d101sls01",
+          "mgmtIp": "172.23.226.207",
+          "nodeId": "1014",
+          "serialNumber": "FTX999999999"
+        }
+      }
+    },
+    "tenant": {
+      "tenantSyslog": [
+        "99.99.99.99",
+        "99.99.99.98"
+      ],
+      "vlanList": [
+        "1",
+        "2",
+        "57",
+        "58",
+        "59",
+        "60",
+        "64",
+        "68",
+        "72",
+        "73",
+        "74",
+        "75",
+        "76",
+        "78",
+        "80",
+        "84",
+        "88",
+        "90",
+        "92",
+        "94",
+        "96",
+        "98",
+        "136",
+        "140",
+        "146",
+        "147",
+        "148",
+        "149",
+        "150",
+        "151",
+        "152",
+        "153",
+        "154",
+        "155",
+        "156",
+        "157",
+        "158",
+        "159",
+        "160",
+        "164",
+        "168",
+        "169",
+        "170",
+        "171",
+        "172",
+        "173",
+        "174",
+        "180",
+        "190",
+        "191",
+        "192",
+        "193",
+        "194",
+        "236",
+        "241",
+        "400",
+        "436",
+        "555",
+        "700",
+        "701",
+        "791",
+        "792",
+        "816",
+        "1040",
+        "1056",
+        "1120",
+        "1136",
+        "1152",
+        "1168",
+        "1184",
+        "1226",
+        "2224",
+        "2512"
+      ]
+    }
+  }

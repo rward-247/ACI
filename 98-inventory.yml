@@ -1,5 +1,5 @@
 - name: APIC - Fabric and tenant setup
-  hosts: dCloud1
+  hosts: all
   gather_facts: no
 
   vars:

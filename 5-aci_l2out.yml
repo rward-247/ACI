@@ -1,5 +1,5 @@
 - name: APIC - L2Out setup
-  hosts: dCloud1
+  hosts: all
   gather_facts: no
 
   vars:

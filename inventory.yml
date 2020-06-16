@@ -8,7 +8,18 @@ all:
             apic_host: 198.18.132.200
             apic_username: admin
             apic_password: C1sco12345
-
+        xhd:
+            apic_host: 172.23.226.201
+            apic_username: admin
+            apic_password: C1sco12345
+        xap:
+            apic_host: 172.##.226.201
+            apic_username: admin
+            apic_password: C1sco12345
+        xir:
+            apic_host: 172.##.226.201
+            apic_username: admin
+            apic_password: C1sco12345
     vars:
         apic_use_proxy: no
         apic_validate_certs: no

@@ -1,5 +1,5 @@
 - name: APIC - One-time management setup
-  hosts: dCloud1
+  hosts: all
   gather_facts: no
 
   vars:

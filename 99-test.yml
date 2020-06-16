@@ -1,5 +1,5 @@
 - name: Test Workbook
-  hosts: dCloud1
+  hosts: all
   gather_facts: no
   vars:
     template: "{{ lookup('file', 'group_vars/template.json') | from_json }}"

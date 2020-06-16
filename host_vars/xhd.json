@@ -28,12 +28,12 @@
         "name": "99"
       },
       "mcpKey": "Xhd_Mcp",
-      "bgpRrAsn": "6490599999999"
+      "bgpRrAsn": "64905"
     },
     "switches": {
       "spine": {
         "mgmtSubnet": "/23",
-        "mgmtGw": "172.23.226.99999",
+        "mgmtGw": "172.23.227.254",
         "sw1": {
           "hostname": "xhd-d101sps01",
           "mgmtIp": "172.23.226.204",
@@ -111,7 +111,7 @@
             "sw1": {
               "hostname": "xhd-d107sls01",
               "mgmtIp": "172.23.226.216",
-              "nodeId": "1047",
+              "nodeId": "1071",
               "serialNumber": "FTX999999999"
             },
             "sw2": {
